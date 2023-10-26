@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BizzOnBuzzVM1.Inventory"
+             Title="Inventory">
+    <ListView x:Name="listView" HasUnevenRows="True" Margin="0,0,0,0">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Update" Clicked="Update_Clicked" />
+                        <MenuItem Text="Delete" Clicked="MenuItem_Clicked" CommandParameter="{Binding .}"  IsDestructive="True" />
+                    </ViewCell.ContextActions>
+                    <StackLayout Orientation="Horizontal" >
+                        <Image Source="{Binding ImageUrl}" HeightRequest="90"/>
+                        <StackLayout HorizontalOptions="StartAndExpand" Padding="25">
+                            <Label Text="Name:" Margin="0,0,0,0"/>
+                            <Label Text="{Binding Name}" Margin="50,-18.7,0,0"/>
+                            <Label Text="Weight:"/>
+                            <Label Text="{Binding Weight}" Margin="55,-18.7,0,0"/>
+                            <Label Text="$"/>
+                            <Label Text="{Binding Price}" Margin="55,-18.7,0,0"/>
+                            <Label Text="Description:"/>
+                            <Label Text="{Binding Description}" Margin="80,-18.7,0,0"/>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+                
+            </DataTemplate>
+            
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
